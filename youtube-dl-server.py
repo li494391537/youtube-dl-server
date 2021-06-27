@@ -33,7 +33,7 @@ async def dl_queue_list(request):
 async def q_put(request):
     form = await request.form()
     url = form.get("url").strip()
-    options = {"format": form.get("format")}
+    options = {"format": form.get("format"), "proxy": form.get("proxy")}
 
     if not url:
         return JSONResponse(
