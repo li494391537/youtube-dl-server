@@ -106,6 +106,7 @@ def get_ydl_options(request_options):
         "outtmpl": ydl_vars["YDL_OUTPUT_TEMPLATE"],
         "download_archive": ydl_vars["YDL_ARCHIVE_FILE"],
         "updatetime": ydl_vars["YDL_UPDATE_TIME"] == "True",
+        "proxy": request_options.get("proxy", "")
     }
 
 
