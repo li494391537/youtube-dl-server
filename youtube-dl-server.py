@@ -33,7 +33,7 @@ async def dl_queue_list(request):
 async def q_put(request):
     form = await request.form()
     url = form.get("url").strip()
-    options = {"format": form.get("format"), "proxy": form.get("proxy"), "cookies": form.get("cookies")}
+    options = {"format": form.get("format"), "proxy": form.get("proxy"), "cookiefile": form.get("cookiefile")}
 
     if not url:
         return JSONResponse(
@@ -107,7 +107,7 @@ def get_ydl_options(request_options):
         "download_archive": ydl_vars["YDL_ARCHIVE_FILE"],
         "updatetime": ydl_vars["YDL_UPDATE_TIME"] == "True",
         "proxy": request_options.get("proxy", ""),
-        "cookies": request_options.get("cookies", "")
+        "cookiefile": request_options.get("cookiefile", "")
     }
 
 
